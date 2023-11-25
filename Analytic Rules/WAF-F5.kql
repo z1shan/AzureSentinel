@@ -1,7 +1,7 @@
 CommonSecurityLogs
 | where DeviceVendor contains "F5"
 | where AttackType contains "SQL-Injection" 
-| where   DeviceAction != "blocked"
+| where DeviceAction != "blocked"
 | where ResponseCode !in ("404","502","500","400","403","0")
 | where ViolationRating>=4
 | project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,Method,DestinationIP,DestinationPort,GeoLocation 
