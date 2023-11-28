@@ -1,5 +1,4 @@
 // SQL Injection Attempt
-
 PAFirewallLogs
 | where TimeGenerated >ago(1h)
 | where LogType contains "Threat"
@@ -8,7 +7,6 @@ PAFirewallLogs
 | summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
 
 // SSH Brute-Force Attempt 
-
 PAFirewallLogs
 | where TimeGenerated >ago(1h)
 | where LogType contains "Threat"
@@ -17,7 +15,6 @@ PAFirewallLogs
 | summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
 
 // Suspicious DNS Query Attempt 
-
 PAFirewallLogs
 | where TimeGenerated >ago(1h)
 | where LogType contains "Threat"
@@ -26,7 +23,6 @@ PAFirewallLogs
 | summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
 
 // XSS Attempt 
-
 PAFirewallLogs
 | where TimeGenerated >ago(1h)
 | where LogType contains "Threat"
@@ -35,7 +31,6 @@ PAFirewallLogs
 | summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
 
 // SMB: User Password Brute Force Attempt 
-
 PAFirewallLogs
 | where TimeGenerated >ago(1h)
 | where LogType contains "Threat"
@@ -44,7 +39,6 @@ PAFirewallLogs
 | summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
 
 // PAN-OS Authentication Bypass Vulnerability 
-
 PAFirewallLogs
 | where TimeGenerated >ago(1h)
 | where LogType contains "Threat"
