@@ -1,7 +1,107 @@
-CommonSecurityLogs
-| where DeviceVendor contains "F5"
+// SQL Injection
+F5Logs
 | where AttackType contains "SQL-Injection" 
 | where DeviceAction != "blocked"
 | where ResponseCode !in ("404","502","500","400","403","0")
 | where ViolationRating>=4
 | project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,Method,DestinationIP,DestinationPort,GeoLocation 
+
+// Path Traversal Detection
+
+F5Logs
+| where AttackType contains "Path Traversal"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+//	HTTP Parser Attack Detection
+
+F5Logs
+| where AttackType contains "HTTP Parser Attack"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+// XML Parser Attack Detection
+
+F5Logs
+| where AttackType contains "XML Parser Attack"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+// Trojan/Backdoor/Spyware 
+
+F5Logs
+| where AttackType contains "Trojan/Backdoor/Spyware"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+// DDoS Attack Detection
+
+F5Logs
+| where AttackType contains "Denial of Service"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+// Cross Site Scripting (XSS)
+
+F5Logs
+| where AttackType contains "Cross Site Scripting (XSS)"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+//	RFI Detection
+
+F5Logs
+| where AttackType contains "Remote File Include"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+//	Server-Side Code Injection Detection
+
+F5Logs
+| where AttackType contains "Server Side Code Injection"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+//	Non-browser Client Detection
+
+F5Logs
+| where AttackType contains "Non-browser Client"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
+
+//	Detection Evasion
+
+F5Logs
+| where AttackType contains "Detection Evasion"
+| where DeviceAction != "blocked"
+| where ResponseCode !in ("404","502","500","400","403","0")
+| where ViolationRating>=4
+| project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
+Method,DestinationIP,DestinationPort,GeoLocation
