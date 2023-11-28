@@ -1,0 +1,39 @@
+// HTTP Java Code Injection
+
+FortinetLogs
+| where TimeGenerated >ago(1h)
+| where DeviceAction=="detected"
+| where Level=="alert"
+| where LogSeverity in ("critical","high")
+| where EventType =="signature"
+| where Message contains "web_app3: HTTP.URI.Java.Code.Injection"
+
+// PHP Malicious Shell Attempt 
+
+FortinetLogs
+| where TimeGenerated >ago(1h)
+| where DeviceAction=="detected"
+| where Level=="alert"
+| where LogSeverity in ("critical","high")
+| where EventType =="signature"
+| where Message contains "web_app3: PHP.Malicious.Shell"
+
+// SQL Injection Attempt 
+
+FortinetLogs
+| where TimeGenerated >ago(1h)
+| where DeviceAction=="detected"
+| where Level=="alert"
+| where LogSeverity in ("critical","high")
+| where EventType =="signature"
+| where Message contains "SQL.Injection"
+
+// Linux Web Server Sensitive File Accessed
+
+FortinetLogs
+| where TimeGenerated >ago(1h)
+| where DeviceAction=="detected"
+| where Level=="alert"
+| where LogSeverity in ("critical","high")
+| where EventType =="signature"
+| where Message contains "applications3: Web.Server.Password.File.Access"
