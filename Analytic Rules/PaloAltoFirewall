@@ -1,0 +1,53 @@
+// SQL Injection Attempt
+
+PAFirewallLogs
+| where TimeGenerated >ago(1h)
+| where LogType contains "Threat"
+| where ThreatName contains "HTTP SQL Injection Attempt" or PanOSThreatCategory contains "sql-injection"
+| where DeviceAction != "reset-both" or DeviceAction !="blocked"
+| summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
+
+// SSH Brute-Force Attempt 
+
+PAFirewallLogs
+| where TimeGenerated >ago(1h)
+| where LogType contains "Threat"
+| where ThreatName contains "SSH User Authentication Brute Force Attempt" or PanOSThreatCategory contains "brute-force"
+| where DeviceAction != "reset-both" or DeviceAction !="blocked"
+| summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
+
+// Suspicious DNS Query Attempt 
+
+PAFirewallLogs
+| where TimeGenerated >ago(1h)
+| where LogType contains "Threat"
+| where ThreatName contains "Suspicious DNS Query" or PanOSThreatCategory contains "dns"
+| where DeviceAction != "reset-both" or DeviceAction !="blocked" or DeviceAction != "drop"
+| summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
+
+// XSS Attempt 
+
+PAFirewallLogs
+| where TimeGenerated >ago(1h)
+| where LogType contains "Threat"
+| where ThreatName contains "Generic HTTP Cross Site Scripting Attempt" or PanOSThreatCategory contains "code-execution"
+| where DeviceAction != "reset-both" or DeviceAction !="blocked" or DeviceAction != "drop"
+| summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
+
+// SMB: User Password Brute Force Attempt 
+
+PAFirewallLogs
+| where TimeGenerated >ago(1h)
+| where LogType contains "Threat"
+| where ThreatName contains "SMB: User Password Brute Force Attempt" or PanOSThreatCategory contains "brute-force"
+| where DeviceAction != "reset-both" or DeviceAction !="blocked" or DeviceAction != "drop"
+| summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
+
+// PAN-OS Authentication Bypass Vulnerability 
+
+PAFirewallLogs
+| where TimeGenerated >ago(1h)
+| where LogType contains "Threat"
+| where ThreatName contains "PAN-OS Authentication Bypass Vulnerability" or PanOSThreatCategory contains "info-leak"
+| where DeviceAction != "reset-both" or DeviceAction !="blocked" or DeviceAction != "drop"
+| summarize min(ReceiptTime), max(ReceiptTime), max(TimeGenerated), min(TimeGenerated) by SourceIP, DestinationIP,DestinationPort, ApplicationProtocol, DeviceAction
