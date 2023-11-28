@@ -16,7 +16,7 @@ F5Logs
 | project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
 Method,DestinationIP,DestinationPort,GeoLocation
 
-//	HTTP Parser Attack Detection
+// HTTP Parser Attack Detection
 
 F5Logs
 | where AttackType contains "HTTP Parser Attack"
