@@ -66,7 +66,7 @@ F5Logs
 | project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
 Method,DestinationIP,DestinationPort,GeoLocation
 
-//	RFI Detection
+// RFI Detection
 
 F5Logs
 | where AttackType contains "Remote File Include"
@@ -76,7 +76,7 @@ F5Logs
 | project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
 Method,DestinationIP,DestinationPort,GeoLocation
 
-//	Server-Side Code Injection Detection
+// Server-Side Code Injection Detection
 
 F5Logs
 | where AttackType contains "Server Side Code Injection"
@@ -86,7 +86,7 @@ F5Logs
 | project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
 Method,DestinationIP,DestinationPort,GeoLocation
 
-//	Non-browser Client Detection
+// Non-browser Client Detection
 
 F5Logs
 | where AttackType contains "Non-browser Client"
@@ -96,7 +96,7 @@ F5Logs
 | project TimeGenerated,DeviceName,SignatureName,SignatureId,DeviceAction,SourceIP,SourcePort,
 Method,DestinationIP,DestinationPort,GeoLocation
 
-//	Detection Evasion
+// Detection Evasion
 
 F5Logs
 | where AttackType contains "Detection Evasion"
